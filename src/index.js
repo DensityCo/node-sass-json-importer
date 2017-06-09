@@ -39,9 +39,19 @@ export function isJSONfile(url) {
   return /\.json$/.test(url);
 }
 
+export function transformCamelCaseKeyToKabobCase(key) {
+  return key.split('').reduce((acc, i) => {
+    if (i.toUpperCase() === i) {
+      return `${acc}-${i.toLowerCase()}`;
+    } else {
+      return `${acc}${i}`;
+    }
+  }, '');
+}
+
 export function transformJSONtoSass(json) {
   return Object.keys(json)
-    .map(key => `$${key}: ${parseValue(json[key])};`)
+    .map(key => `$${transformCamelCaseKeyToKabobCase(key)}: ${parseValue(json[key])};`)
     .join('\n');
 }
 

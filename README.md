@@ -2,6 +2,22 @@
 
 JSON importer for [node-sass](https://github.com/sass/node-sass). Allows `@import`ing `.json` files in Sass files parsed by `node-sass`.
 
+**NOTE**: This is a fork of
+[Updater/node-sass-json-importer](https://github.com/Updater/node-sass-json-importer). We've added a
+transformation of camelcased keys to kabob-cased keys automatically. For example:
+
+```json
+{
+  "fooBar": "baz"
+}
+```
+
+is converted to:
+
+```scss
+$foo-bar: baz;
+```
+
 [![npm](https://img.shields.io/npm/v/node-sass-json-importer.svg)](https://www.npmjs.com/package/node-sass-json-importer)
 [![build status](https://travis-ci.org/Updater/node-sass-json-importer.svg?branch=master)](https://travis-ci.org/Updater/node-sass-json-importer)
 

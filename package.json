@@ -1,6 +1,6 @@
 {
   "name": "@density/node-sass-json-importer",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Allows importing json in sass files parsed by node-sass.",
   "main": "dist/node-sass-json-importer.js",
   "license": "MIT",

@@ -60,6 +60,8 @@ export function parseValue(value) {
     return parseList(value);
   } else if (_.isPlainObject(value)) {
     return parseMap(value);
+  } else if (typeof value === "number") {
+    return `${value}px`;
   } else {
     return value;
   }
@@ -73,7 +75,7 @@ export function parseList(list) {
 
 export function parseMap(map) {
   return `(${Object.keys(map)
-    .map(key => `${key}: ${parseValue(map[key])}`)
+    .map(key => `${transformCamelCaseKeyToKabobCase(key)}: ${parseValue(map[key])}`)
     .join(',')})`;
 }
 
